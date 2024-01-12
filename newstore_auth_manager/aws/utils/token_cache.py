@@ -19,7 +19,7 @@ def get_cached_token(client_id, role, dynamodb_table_name, dynamodb_client=None)
     dynamodb_client is used for testing purposes
     """
     key = base64_encode(f"{client_id}:{role}")
-
+    # Updating a comment here
     # Create a DynamoDB resource
     if not dynamodb_client:
         dynamodb = boto3.resource('dynamodb')
