@@ -10,6 +10,7 @@ This integration is for the centralized management of NewStore API Credentials t
 
 ## QuickStart Guide
 
+
 ### Adding Credentials to the Parameter Store
 **Headers**
 ```json
