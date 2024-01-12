@@ -13,3 +13,6 @@ api-toolkit = {git = "git+https://github.com/kyleranous/api_toolkit.git"}
 pytest = "*"
 coverage = "*"
 pytest-mock = "*"
+
+[requires]
+python_version = "3.9"
