@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+newstore-connector = {git = "git+https://github.com/kyleranous/newstore_connector.git"}
+boto3 = "*"
+install = "*"
+api-toolkit = {git = "git+https://github.com/kyleranous/api_toolkit.git"}
+
+[dev-packages]
+pytest = "*"
+coverage = "*"
+pytest-mock = "*"
