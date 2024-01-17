@@ -46,7 +46,16 @@ This integration is for the centralized management of NewStore API Credentials t
 ```python
 import boto3
 
-
+auth_request_payload = {
+    'client_id': '[CLIENT ID FROM NEWSTORE]',
+    'role': 'Requested Role',
+    'request_from': 'Your Lambda Name'
+}
+lambda_client = boto3.client('lambda')
+response = lambda_client.invoke(FunctionName='newstore-credential-manager',
+                                InvocationType='RequestResponse',
+                                Payload=auth_request_payload,
+)
 ```
 
 ## Workflow
@@ -57,6 +66,9 @@ import boto3
 ## Contributors
  - Kyle Ranous - kyle.ranous@changecx.com
 
+
+## ToDo
+ - [ ] Make role optional
 
 
 ## Notes
