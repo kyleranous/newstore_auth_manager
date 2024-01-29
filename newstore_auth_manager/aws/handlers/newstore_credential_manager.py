@@ -41,7 +41,7 @@ def handler(event, _context):
 
     # Checking for client_secret so this can be used to validate new credentials
     response = get_access_token(event_dict['client_id'],
-                                event_dict['role'],
+                                event_dict.get('role'),
                                 client_secret=event_dict.get('client_secret', None))
 
     return response

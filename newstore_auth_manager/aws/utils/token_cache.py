@@ -18,7 +18,7 @@ def get_cached_token(client_id, role, dynamodb_table_name, dynamodb_client=None)
     then search the DynamoDB Table for a cached token.
     dynamodb_client is used for testing purposes
     """
-    key = base64_encode(f"{client_id}:{role}")
+    key = base64_encode(f"{client_id}:{role}") if role else base64_encode(f"{client_id}:none")
 
     # Create a DynamoDB resource
     if not dynamodb_client:
@@ -46,7 +46,10 @@ def cache_token(*args, **kwargs):
      - token_ttl,
      - token_table
     """
-    key = base64_encode(f"{args[0]}:{args[1]}")
+    if args[1] is None:
+        key = base64_encode(f"{args[0]}:none")
+    else:
+        key = base64_encode(f"{args[0]}:{args[1]}")
     LOGGER.info(f"Key Type: {type(key)}")
     access_token = args[2]
     token_table = args[4]
